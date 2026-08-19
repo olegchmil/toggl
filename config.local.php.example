@@ -1,0 +1,9 @@
+<?php
+declare(strict_types=1);
+
+// Секретный ключ для «ссылки руководителя» (экспорт CSV).
+// Скопируйте этот файл как config.local.php и задайте СВОЙ ключ, например:
+//   php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
+// Либо укажите переменную окружения TOGGL_EXPORT_KEY.
+// Файл config.local.php в git не публикуется.
+$exportKey = 'сюда-свой-ключ-64-шестнадцатеричных-символов';
