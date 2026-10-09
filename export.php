@@ -67,8 +67,9 @@ $lines[] = $line([
 
 $now = now_local();
 foreach ($entries as $entry) {
-    $end = empty($entry['end']) ? $now : $entry['end'];
-    $duration = fmt_duration($entry['start'], $end);
+    $start = clean_dt((string)$entry['start']) ?? (string)$entry['start'];
+    $end = empty($entry['end']) ? $now : (clean_dt((string)$entry['end']) ?? (string)$entry['end']);
+    $duration = fmt_duration($start, $end);
     $lines[] = $line([
         $displayName,
         $email,
@@ -77,8 +78,8 @@ foreach ($entries as $entry) {
         '',
         $entry['description'],
         'No',
-        substr($entry['start'], 0, 10),
-        substr($entry['start'], 11, 8),
+        substr($start, 0, 10),
+        substr($start, 11, 8),
         substr($end, 0, 10),
         substr($end, 11, 8),
         $duration,

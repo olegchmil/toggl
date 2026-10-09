@@ -183,7 +183,7 @@ table.entries td.dur{white-space:nowrap;font-variant-numeric:tabular-nums}
           <div class="muted">Начало: <span id="a_start"></span></div>
         </div>
         <div class="right">
-          <div class="timer-big" id="a_duration">0:00 min</div>
+          <div class="timer-big" id="a_duration">00:00:00</div>
           <button class="primary" style="margin-top:8px" onclick="stopEntry()">■ Стоп</button>
         </div>
       </div>
@@ -294,10 +294,7 @@ function toLocal(v) {
   return s;
 }
 function fmtDur(ms) {
-  const total = Math.max(0, Math.floor(ms / 1000));
-  const m = Math.floor(total / 60);
-  const s = total % 60;
-  return m + ':' + pad(s) + ' min';
+  return fmtHMS(ms);
 }
 function fmtHMS(ms) {
   const total = Math.max(0, Math.floor(ms / 1000));
