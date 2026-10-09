@@ -183,7 +183,7 @@ table.entries td.dur{white-space:nowrap;font-variant-numeric:tabular-nums}
           <div class="muted">Начало: <span id="a_start"></span></div>
         </div>
         <div class="right">
-          <div class="timer-big" id="a_duration">00:00:00</div>
+          <div class="timer-big" id="a_duration">0:00:00</div>
           <button class="primary" style="margin-top:8px" onclick="stopEntry()">■ Стоп</button>
         </div>
       </div>
@@ -301,7 +301,7 @@ function fmtHMS(ms) {
   const h = Math.floor(total / 3600);
   const m = Math.floor((total % 3600) / 60);
   const s = total % 60;
-  return String(h).padStart(2, '0') + ':' + pad(m) + ':' + pad(s);
+  return h + ':' + pad(m) + ':' + pad(s);
 }
 function durMin(dt) { return new Date(dt.replace(' ', 'T')).getTime(); }
 
